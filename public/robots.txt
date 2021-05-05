@@ -1,3 +1,55 @@
-# https://www.robotstxt.org/robotstxt.html
-User-agent: *
-Disallow:
+Props:
+    Props are of two types:
+        1. As Arguements
+        2. As Functions
+
+1.) passing as Arguements
+
+    ->create userdetails component and pass name,age from App.js
+    -> props.children
+
+
+#Destructuring
+
+{Name,age,children} ==> in Arguements itself
+const {Name,age,children} = props; ==> anoter way.
+
+#default props:
+    UserDetails.defaultProps = {
+    name: "venkat",
+    age: 21,
+    children: "Speical to no one"
+
+}
+
+#Validating PropsDataType
+    UserDetails.prototype ={
+    name : PropTypes.string,
+    age : PropTypes.number,
+    children : PropTypes.string
+}
+
+function App() {
+  const onClickHandler = (name) => {
+    alert("Hi hello, adab "+name)
+  }
+
+  const multifunc = () => {
+    onClickHandler("Alekhya");
+  }
+  return (
+    <div className="App">
+      <UserDetails name="john" age={24}/>
+      <UserDetails name="Alekhya" age={41}>
+        I am so Special To Venkat
+      </UserDetails>
+      <button onClick={() => onClickHandler("venkat")}>Click Me</button>
+
+      <button onClick={multifunc} >MultiClick</button>
+    </div>
+  );
+}
+
+#Conditional Rendering
+======================================================================
+
